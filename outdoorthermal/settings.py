@@ -26,7 +26,7 @@ SECRET_KEY = 'ge!y04&)s%(7vwrbcxs&2+4ezxby*hm4l_snx2c+m7snb@mdsd'
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'outdoorthermaltesting.herokuapp.com',
+    'outdoorthermalcomfortdata.herokuapp.com',
     '127.0.0.1',
     'localhost',
     'www.outdoorthermalcomfortdata.com',
