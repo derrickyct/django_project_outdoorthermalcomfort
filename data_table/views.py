@@ -31,12 +31,10 @@ def DataFilter(t, request):
     hsv_query = request.GET.getlist('humidity_sensation_vote')
 
     if tsv7_query:
-        print('got tsv', tsv7_query)
         isSelected = True
         t = t.filter(thermal_sensation_vote_7__in=tsv7_query)
         print(t)
     if tsv9_query:
-        print('got tsv', tsv9_query)
         isSelected = True
         t = t.filter(thermal_sensation_vote_9__in=tsv9_query)
         print(t)
