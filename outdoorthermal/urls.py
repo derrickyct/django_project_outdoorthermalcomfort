@@ -22,6 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('data_table.urls')),
     url(r'^plotting/', include('plotting.urls')),
-    url(r'^favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('img/favicon.ico'))),
     url(r'^django_plotly_dash/', include('django_plotly_dash.urls')),
 ]
