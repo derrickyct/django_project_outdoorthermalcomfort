@@ -1,1 +1,0 @@
-web: gunicorn outdoorthermal.wsgi --log-file -
