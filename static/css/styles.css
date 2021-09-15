@@ -1,0 +1,90 @@
+html * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body { margin:0px; }
+
+header {
+    background-color: rgb(34, 33, 33);
+}
+
+.header-container {background-color: rgb(34, 33, 33);}
+
+.header-logo {
+    padding: 14px;
+    font-size: 32pt;
+    background-color: rgb(34, 33, 33);
+    color: black;
+    margin-bottom: -10px;
+}
+
+.header-logo a:link, .header-logo a:visited, .header-logo a:hover,
+#download-btn a:link, #download-btn a:visited, #download-btn a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    margin-top: 15px;
+}
+
+.filter-form {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-form-title {
+    margin-top: -2px;
+    margin-bottom: -2px;
+}
+
+#submitBtn {
+    margin-top: 7px;
+    background-color: rgb(34, 33, 33);
+    color: white;
+    border-radius: 2px;
+}
+
+.simulate-link {
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 1%;
+    font-size: 16pt;
+}
+
+.simulate-link a:link, .simulate-link a:visited, .simulate-link a:hover {
+    color: rgb(34, 33, 33);
+    text-decoration: none;
+}
+
+#download-btn {
+    text-align: center;
+    font-size: 14pt;
+    background-color: rgb(34, 33, 33);
+    padding: 6px;
+    border-radius: 7px;
+    box-shadow: 1.5px 1.5px #888888;
+}
+
+#download-btn:hover {
+    cursor: pointer;
+    background-color: rgb(43, 42, 42);
+}
+
+.main-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.footer {
+    text-align: center;
+}
+
+#subjectiveTitle:hover, #demographyTitle:hover, #individualTitle:hover, #measurmentTitle:hover, #surveyTitle:hover {
+    cursor: pointer;
+}
