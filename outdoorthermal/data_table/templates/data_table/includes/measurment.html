@@ -1,0 +1,77 @@
+<h3 id="measurmentTitle">Measurment</h3>
+<div id="measurmentForm">
+    <table>
+        <tr>
+            <td>
+                Air Temperature:
+            </td>
+            <td>
+                <span id="air_temp_value">{{ air_temp_min }},{{ air_temp_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="air_temp" class="span2" id="air_temp" value="" data-slider-min="{{ air_temp_min }}" data-slider-max="{{ air_temp_max }}" data-slider-step="1" data-slider-value="[{{ air_temp_min }}, {{ air_temp_max }}]"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Relative Humidity:
+            </td>
+            <td>
+                <span id="relative_humidity_value">{{ relative_humidity_min }},{{ relative_humidity_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="relative_humidity" class="span2" id="relative_humidity" value="" data-slider-min="{{ relative_humidity_min }}" data-slider-max="{{ relative_humidity_max }}" data-slider-step="1" data-slider-value="[{{ relative_humidity_min }}, {{ relative_humidity_max }}]"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wind Speed:
+            </td>
+            <td>
+                <span id="wind_speed_value">{{ wind_speed_min }},{{ wind_speed_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="wind_speed" class="span2" id="wind_speed" value="" data-slider-min="{{ wind_speed_min }}" data-slider-max="{{ wind_speed_max }}" data-slider-step="1" data-slider-value="[{{ wind_speed_min }}, {{ wind_speed_max }}]"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Global Temperature:
+            </td>
+            <td>
+                <span id="global_temp_value">{{ global_temp_min }},{{ global_temp_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="global_temp" class="span2" id="global_temp" value="" data-slider-min="{{ global_temp_min }}" data-slider-max="{{ global_temp_max }}" data-slider-step="1" data-slider-value="[{{ global_temp_min }}, {{ global_temp_max }}]"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mean Radiant Temperature:
+            </td>
+            <td>
+                <span id="mean_radiant_temp_value">{{ mean_radiant_temp_min }},{{ mean_radiant_temp_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="mean_radiant_temp" class="span2" id="mean_radiant_temp" value="" data-slider-min="{{ mean_radiant_temp_min }}" data-slider-max="{{ mean_radiant_temp_max }}" data-slider-step="1" data-slider-value="[{{ mean_radiant_temp_min }}, {{ mean_radiant_temp_max }}]"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Radiation:
+            </td>
+            <td>
+                <span id="radiation_value">{{ radiation_min }},{{ radiation_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="radiation" class="span2" id="radiation" value="" data-slider-min="{{ radiation_min }}" data-slider-max="{{ radiation_max }}" data-slider-step="1" data-slider-value="[{{ radiation_min }}, {{ radiation_max }}]"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                PET:
+            </td>
+            <td>
+                <span id="pet_value">{{ pet_min }},{{ pet_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="pet" class="span2" id="pet" value="" data-slider-min="{{ pet_min }}" data-slider-max="{{ pet_max }}" data-slider-step="0.5" data-slider-value="[{{ pet_min }}, {{ pet_max }}]"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                UTCI:
+            </td>
+            <td>
+                <span id="utci_value">{{ utci_min }},{{ utci_max }}</span>&nbsp;&nbsp;
+                <input type="text" name="utci" class="span2" id="utci" value="" data-slider-min="{{ utci_min }}" data-slider-max="{{ utci_max }}" data-slider-step="0.5" data-slider-value="[{{ utci_min }}, {{ utci_max }}]"/>
+            </td>
+        </tr>
+    </table>
+</div>

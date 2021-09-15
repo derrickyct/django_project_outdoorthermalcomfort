@@ -1,0 +1,10 @@
+<form class="filter-form" method="post">
+    {% csrf_token %}
+    <h3 class="filter-form-title" style="font-weight: bold;">Select column(s)</h3>
+    {% for option in filter_option %}
+        <input type="checkbox" value="{{ option }}" id="{{ option }}" name="column_choices">
+        <label for="{{ option }}">{{ option }}</label>
+    {% endfor %}
+    <br>
+    <button type="submit" class="btn btn-primary" name="select">Select</button>
+</form>

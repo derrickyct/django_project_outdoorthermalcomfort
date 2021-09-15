@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load render_table from django_tables2 %}
+
+{% load bootstrap3 %}
+
+{% load static %}
+
+{% block title %}Outdoor temperature data{% endblock %}
+
+{% block website_css %}
+<link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}" />
+{% endblock %}
+
+{% block main %}
+<div class="main-container">
+    <div class="simulate-link"><a href="{% url 'plot' %}">Plot Graph</a></div>
+
+    <form method="get" id="selectSubjective" class="filter-form">
+        <h3 class="filter-form-title" style="font-weight: bold;">Search Data</h3>
+        {% include 'data_table/includes/subjective_assessment.html' %}
+        {% include 'data_table/includes/demography.html' %}
+        {% include 'data_table/includes/individual_act_bg.html' %}
+        {% include 'data_table/includes/measurment.html' %}
+        {% include 'data_table/includes/survey_bg.html' %}
+        <br>
+        <button type="submit" class="btn btn-primary" name="search">Search</button>
+        <button type="submit" class="btn btn-primary" name="reset">Reset</button>
+    </form>
+
+    {% include 'data_table/includes/select_column_filter.html' %}
+
+    <div class="cointainer" style="overflow-x: scroll;">
+        {% render_table table 'django_tables2/bootstrap.html' %}
+    </div>
+    {% load querystring from django_tables2 %}
+    <button class="download-btn"><a href="{% querystring '_export'='csv' %}">Download CSV</a></button>
+</div>
+
+{% endblock %}
