@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ge!y04&)s%(7vwrbcxs&2+4ezxby*hm4l_snx2c+m7snb@mdsd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'outdoorthermalcomfortdata.herokuapp.com',

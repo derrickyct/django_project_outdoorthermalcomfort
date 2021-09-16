@@ -1,7 +1,7 @@
 from django.db.models import Max, Min
 from .models import ShinyData
 
-filter_option = [f.verbose_name for f in ShinyData._meta.get_fields()[1:]]
+filter_option = {str(f.verbose_name): str(f.name) for f in ShinyData._meta.get_fields()[1:]}
 GENDER_CHOICES = [i for i in ShinyData.objects.exclude(gender=None).exclude(gender='N/A').values_list('gender', flat=True).distinct()]
 AGEGRP_CHOICES = [i for i in ShinyData.objects.exclude(agegrp=None).values_list('agegrp', flat=True).distinct()]
 LOCATION_CHOICES = ['---Select---'] + [i for i in ShinyData.objects.values_list('loc', flat=True).distinct()]
