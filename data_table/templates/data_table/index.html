@@ -1,40 +1,46 @@
 {% extends 'base.html' %}
-
-{% load render_table from django_tables2 %}
-
-{% load bootstrap3 %}
-
+{% load bootstrap4 %}
 {% load static %}
-
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 {% block title %}Outdoor temperature data{% endblock %}
 
-{% block website_css %}
+{% block extrastyle %}
 <link rel="stylesheet" href="{% static 'django_tables2/themes/paleblue/css/screen.css' %}" />
-{% endblock %}
+<!-- range-slider bootstrap css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" integrity="sha512-SZgE3m1he0aEF3tIxxnz/3mXu/u/wlMNxQSnE0Cni9j/O8Gs+TjM9tm1NX34nRQ7GiLwUEzwuE3Wv2FLz2667w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.min.css" integrity="sha512-3q8fi8M0VS+X/3n64Ndpp6Bit7oXSiyCnzmlx6IDBLGlY5euFySyJ46RUlqIVs0DPCGOypqP8IRk/EyPvU28mQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock extrastyle %}
 
 {% block main %}
 <div class="main-container">
-    <div class="simulate-link"><a href="{% url 'plot' %}">Plot Graph</a></div>
-
     <form method="get" id="selectSubjective" class="filter-form">
-        <h3 class="filter-form-title" style="font-weight: bold;">Search Data</h3>
-        {% include 'data_table/includes/subjective_assessment.html' %}
-        {% include 'data_table/includes/demography.html' %}
-        {% include 'data_table/includes/individual_act_bg.html' %}
-        {% include 'data_table/includes/measurment.html' %}
-        {% include 'data_table/includes/survey_bg.html' %}
-        <br>
-        <button type="submit" class="btn btn-primary" name="search">Search</button>
+        <h3 class="filter-form-title" id="filterTitle" style="font-weight: bold;">Filter Data</h3>
+        <div class="main-container">
+            {% include 'data_table/includes/subjective_assessment.html' %}
+            {% include 'data_table/includes/demography.html' %}
+            {% include 'data_table/includes/individual_act_bg.html' %}
+            {% include 'data_table/includes/measurment.html' %}
+            {% include 'data_table/includes/survey_bg.html' %}
+        </div>
+        <button type="submit" id="selectBtn" class="btn btn-primary" name="search">Filter</button>
         <button type="submit" class="btn btn-primary" name="reset">Reset</button>
     </form>
 
     {% include 'data_table/includes/select_column_filter.html' %}
 
-    <div class="cointainer" style="overflow-x: scroll;">
-        {% render_table table 'django_tables2/bootstrap.html' %}
+    <div class="cointainer" id="django_table" style="overflow-x: scroll;">
+        {% include 'data_table/includes/django_table.html' %}
     </div>
+
     {% load querystring from django_tables2 %}
-    <button class="download-btn"><a href="{% querystring '_export'='csv' %}">Download CSV</a></button>
+    <a class="btn btn-primary" href="{% querystring '_export'='csv' %}">Download CSV</a>
 </div>
+{% endblock %}
+
+{% block extrajs %}
+<!-- range-slider bootstrap jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.js" integrity="sha512-tCkLWlSXiiMsUaDl5+8bqwpGXXh0zZsgzX6pB9IQCZH+8iwXRYfcCpdxl/owoM6U4ap7QZDW4kw7djQUiQ4G2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 {% endblock %}

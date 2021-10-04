@@ -1,9 +1,8 @@
-<form class="filter-form" method="post">
+<form class="filter-form" id="columnForm" method="post">
     {% csrf_token %}
     <h3 class="filter-form-title" style="font-weight: bold;">Select column(s)</h3>
     {% for key, value in filter_option.items %}
-        <input type="checkbox" value="{{ value }}" id="{{ value }}" name="column_choices">
-        <label for="{{ value }}">{{ key }}</label>
+        <label><input type="checkbox" value="{{ value }}" class="column_choices" id="{{ value }}" name="column_choices">&nbsp;{{ key }}</label>
     {% endfor %}
     <br>
     <button type="submit" class="btn btn-primary" name="select">Select</button>

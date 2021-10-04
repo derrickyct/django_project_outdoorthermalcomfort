@@ -32,7 +32,7 @@ class ShinyData(models.Model):
     thermal_history = models.CharField(verbose_name="Thermal History", max_length=30, null=True)
     air_temp = models.FloatField(verbose_name="Air Temperature", null=True)
     relative_humidity = models.FloatField(verbose_name="Relative Humidity", null=True)
-    wind_speed = models.FloatField(verbose_name="Wind SpeedS", null=True)
+    wind_speed = models.FloatField(verbose_name="Wind Speed", null=True)
     global_temp = models.FloatField(verbose_name="Global Temperature", null=True)
     mean_radiant_temp = models.FloatField(verbose_name="Mean Radiant Temperature", null=True)
     radiation = models.FloatField(verbose_name="Radiation", null=True)

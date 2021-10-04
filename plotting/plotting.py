@@ -4,24 +4,27 @@ from dash import dcc
 # import dash_html_components as html
 from dash import html
 from dash.dependencies import Input, Output
-import plotly.graph_objs as go
+# import plotly.graph_objs as go
 from django_plotly_dash import DjangoDash
 import pandas as pd
+import plotly.express as px
+# import dash_table
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = DjangoDash('SimpleExample', external_stylesheets=external_stylesheets)
 
-df = pd.read_csv('ShinyData.csv')
+df = pd.read_csv('ShinyData_updated_v2.csv')
 
 choices = [i for i in df.head()]
 
-x_axis_choices = ['Air Temperature', 'Relative Humidity', 'Wind Speed', 'Globe Temperature', 'Mean Radiant Temperature',
+x_axis_choices = ['Air Temperature', 'Relative Humidity', 'Wind Speed', 'Globe Temperature', 'Mean Radiant Temeprature',
                   'Radiation', 'PET', 'UTCI']
 
-y_axis_choices = ['Thermal Sensation Vote', 'Thermal Comfort Vote', 'Thermal Preferance Vote',
-                  'Thermal Preference Vote (3-pt scale)', 'Thermal Acceptance', 'Wind Sensation Vote',
-                  'Solar Sensation Vote', 'Humidity Sensation Vote']
+y_axis_choices = ['Thermal Sensation Vote (7-pt)', 'Thermal Sensation Vote (9-pt)', 'Thermal Comfort Vote',
+                  'Thermal Preferance Vote (7-pt)', 'Thermal Preference (3-pt scale)', 'Thermal Acceptance',
+                  'Wind Sensation Vote', 'Solar Sensation Vote', 'Humidity Sensation Vote']
+
 
 app.layout = html.Div([
     html.Div([  # sidebar part
@@ -47,10 +50,13 @@ app.layout = html.Div([
                      ),
         dcc.RadioItems(
             id='graphMethod',
-            options=[{'label': 'Jitter',
-                      'label': 'Smooth',
-                      'label': 'Bin',
-                      'label': 'Raw'}]
+            options=[
+                {'label': 'Jitter', 'value': 'jitter'},
+                {'label': 'Smooth', 'value': 'smooth'},
+                {'label': 'Bin', 'value': 'bin'},
+                {'label': 'Raw', 'value': 'raw'}
+            ],
+            value='raw'
         ),
         html.H4('Facet row'),
         dcc.Dropdown(id='facetRow',
@@ -77,26 +83,78 @@ app.layout = html.Div([
         #     step=500,
         #     updatemode='drag',
         # ),
+        # dcc.Graph(figure=fig),
     ])
 ])
 
 
-@app.callback(Output('scatterPlot', 'figure'), [Input('xAxis', 'value'), Input('yAxis', 'value')])
-def display_value(xAxis, yAxis):
-    graph = go.Scatter(
-        x=df[xAxis],
-        y=df[yAxis],
-        name='Manipulate Graph',
-        mode='markers'
-    )
-    try:
-        layout = go.Layout(
-            paper_bgcolor='#D6EAF8',
-            plot_bgcolor='#D6EAF8',
-            xaxis=dict(range=[min(df[xAxis]), max(df[xAxis])]),
-            yaxis=dict(range=[min(df[yAxis]), max(df[yAxis])]),
-            font=dict(color='#000000'),
-        )
-    except:
-        print('no')
-    return {'data': [graph], 'layout': layout}
+@app.callback(Output('scatterPlot', 'figure'), [Input('xAxis', 'value'), Input('yAxis', 'value'),
+                                                Input('color', 'value'), Input('graphMethod', 'value'),
+                                                Input('facetCol', 'value'), Input('facetRow', 'value')])
+def display_scatter(xAxis, yAxis, color, graphMethod, facetCol, facetRow):
+    if graphMethod == 'raw':
+        print('this is raw plot', graphMethod)
+        if facetCol != 'None' and facetRow != 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, facet_col=facetCol, facet_row=facetRow)
+        elif facetCol != 'None' and facetRow != 'None' and color == 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, facet_col=facetCol, facet_row=facetRow)
+        elif facetCol != 'None' and facetRow == 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, facet_col=facetCol)
+        elif facetCol != 'None' and facetRow == 'None' and color == 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, facet_col=facetCol)
+        elif facetCol == 'None' and facetRow != 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, facet_row=facetRow)
+        elif facetCol == 'None' and facetRow != 'None' and color == 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, facet_row=facetRow)
+        elif facetCol == 'None' and facetRow == 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, trendline="ols")
+        else:
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis)
+        return fig
+    elif graphMethod == 'bin':
+        print('this is bin plot', graphMethod)
+
+    elif graphMethod == 'smooth':
+        print('this is smooth plot', graphMethod)
+        fig = px.scatter(df, x=xAxis, y=yAxis, trendline="ols")
+        return fig
+    elif graphMethod == 'jitter':
+        print('this is jitter plot', graphMethod)
+        fig = px.strip(df, x=xAxis, y=yAxis)
+        return fig
+
+
+# # @app.callback(Output('scatterPlot', 'figure'), [Input('xAxis', 'value'), Input('yAxis', 'value'),
+# #                                                 Input('facetRow', 'value'), Input('facetCol', 'value')])
+# @app.callback(Output('scatterPlot', 'figure'), [Input('xAxis', 'value'), Input('yAxis', 'value')])
+# def display_value(xAxis, yAxis):
+#     if xAxis == 'Relative Humidity':
+#         print('here it is')
+#
+#     graph = go.Scatter(
+#         x=df['UTCI'],
+#         y=df['VP'],
+#         # line={'color':'black','dash':'solid'},
+#         name='Manipulate Graph',
+#         mode='markers+lines',
+#         marker=go.Marker(color='rgb(255, 127, 14)'),
+#     )
+#     try:
+#         layout = go.Layout(
+#             paper_bgcolor='#D6EAF8',
+#             plot_bgcolor='#D6EAF8',
+#             xaxis=dict(range=[min(df[xAxis]), max(df[xAxis])]),
+#             yaxis=dict(range=[min(df[yAxis]), max(df[yAxis])]),
+#             font=dict(color='#000000'),
+#         )
+#     except:
+#         print('no')
+#     return {'data': [graph], 'layout': layout}

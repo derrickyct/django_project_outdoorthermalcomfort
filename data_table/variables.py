@@ -2,6 +2,9 @@ from django.db.models import Max, Min
 from .models import ShinyData
 
 filter_option = {str(f.verbose_name): str(f.name) for f in ShinyData._meta.get_fields()[1:]}
+FIRST_CHOICES = [i for i in range(-4,5)]
+SECOND_CHOICES = [i for i in range(-3,4)]
+THIRD_CHOICES = [i for i in range(-1,2)]
 GENDER_CHOICES = [i for i in ShinyData.objects.exclude(gender=None).exclude(gender='N/A').values_list('gender', flat=True).distinct()]
 AGEGRP_CHOICES = [i for i in ShinyData.objects.exclude(agegrp=None).values_list('agegrp', flat=True).distinct()]
 LOCATION_CHOICES = ['---Select---'] + [i for i in ShinyData.objects.values_list('loc', flat=True).distinct()]
@@ -21,8 +24,18 @@ metabolic_rate_min = ShinyData.objects.aggregate(Min('metabolic_rate')).get('met
 metabolic_rate_max = ShinyData.objects.aggregate(Max('metabolic_rate')).get('metabolic_rate__max')
 clothing_index_min = ShinyData.objects.aggregate(Min('clothing_index')).get('clothing_index__min')
 clothing_index_max = ShinyData.objects.aggregate(Max('clothing_index')).get('clothing_index__max')
-thermal_history_min = -99
-thermal_history_max = 360
+thermal_history_option = ShinyData.objects.values_list('thermal_history', flat=True).distinct()
+
+thermal_history_list = []
+
+for value in thermal_history_option:
+    try:
+        thermal_history_list.append(float(value))
+    except:
+        pass
+
+thermal_history_min = min(thermal_history_list)
+thermal_history_max = max(thermal_history_list)
 
 air_temp_min = ShinyData.objects.aggregate(Min('air_temp')).get('air_temp__min')
 air_temp_max = ShinyData.objects.aggregate(Max('air_temp')).get('air_temp__max')

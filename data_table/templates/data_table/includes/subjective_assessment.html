@@ -1,54 +1,24 @@
-<h3 id="subjectiveTitle">Subjective Assessment</h3>
+<h4 id="subjectiveTitle">Subjective Assessment</h4>
 <div id="subjectiveForm">
     <table>
         <tr>
             <td>
                 Thermal Sensation Vote (7-pt)
             </td>
-            <td class="form-check">
-                <input type="checkbox" name="thermal_sensation_vote_7" class="form-check-input" id="thermal_sensation_vote_7_1" value="-4">
-                <label class="form-check-label" for="thermal_sensation_vote_7_1">-4</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_2" value="-3">
-                <label for="thermal_sensation_vote_7_2">-3</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_3" value="-2">
-                <label for="thermal_sensation_vote_7_3">-2</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_4" value="-1">
-                <label for="thermal_sensation_vote_7_4">-1</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_5" value="0">
-                <label for="thermal_sensation_vote_7_5">0</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_6" value="1">
-                <label for="thermal_sensation_vote_7_6">1</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_7" value="2">
-                <label for="thermal_sensation_vote_7_7">2</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_8" value="3">
-                <label for="thermal_sensation_vote_7_8">3</label>
-                <input type="checkbox" name="thermal_sensation_vote_7" id="thermal_sensation_vote_7_9" value="4">
-                <label for="thermal_sensation_vote_7_9">4</label>
+            <td>
+                {% for tsv7 in FIRST_CHOICES %}
+                <label><input type="checkbox" name="thermal_sensation_vote_7" value="{{ tsv7 }}">&nbsp;{{ tsv7 }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
             <td>
                 Thermal Sensation Vote (9-pt)
             </td>
-            <td class="form-check">
-                <input type="checkbox" name="thermal_sensation_vote_9" class="form-check-input" id="thermal_sensation_vote_9_1" value="-4">
-                <label class="form-check-label" for="thermal_sensation_vote_9_1">-4</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_2" value="-3">
-                <label for="thermal_sensation_vote_9_2">-3</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_3" value="-2">
-                <label for="thermal_sensation_vote_9_3">-2</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_4" value="-1">
-                <label for="thermal_sensation_vote_9_4">-1</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_5" value="0">
-                <label for="thermal_sensation_vote_9_5">0</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_6" value="1">
-                <label for="thermal_sensation_vote_9_6">1</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_7" value="2">
-                <label for="thermal_sensation_vote_9_7">2</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_8" value="3">
-                <label for="thermal_sensation_vote_9_8">3</label>
-                <input type="checkbox" name="thermal_sensation_vote_9" id="thermal_sensation_vote_9_9" value="4">
-                <label for="thermal_sensation_vote_9_9">4</label>
+            <td>
+                {% for tsv9 in SECOND_CHOICES %}
+                <label><input type="checkbox" name="thermal_sensation_vote_9" value="{{ tsv9 }}">&nbsp;{{ tsv9 }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
@@ -56,20 +26,9 @@
                 Thermal Comfort Vote
             </td>
             <td>
-                <input type="checkbox" name="thermal_comfort_vote" id="thermal_comfort_vote1" value="-3">
-                <label for="thermal_comfort_vote1">-3</label>
-                <input type="checkbox" name="thermal_comfort_vote" id="thermal_comfort_vote2" value="-2">
-                <label for="thermal_comfort_vote2">-2</label>
-                <input type="checkbox" name="thermal_comfort_vote" id="thermal_comfort_vote3" value="-1">
-                <label for="thermal_comfort_vote3">-1</label>
-                <input type="checkbox" name="thermal_comfort_vote" id="thermal_comfort_vote4" value="0">
-                <label for="thermal_comfort_vote4">0</label>
-                <input type="checkbox" name="thermal_comfort_vote" id="thermal_comfort_vote5" value="1">
-                <label for="thermal_comfort_vote5">1</label>
-                <input type="checkbox" name="thermal_comfort_vote" id="thermal_comfort_vote6" value="2">
-                <label for="thermal_comfort_vote6">2</label>
-                <input type="checkbox" name="thermal_comfort_vote" id="thermal_comfort_vote7" value="3">
-                <label for="thermal_comfort_vote7">3</label>
+                {% for tcv in SECOND_CHOICES %}
+                <label><input type="checkbox" name="thermal_comfort_vote" value="{{ tcv }}">&nbsp;{{ tcv }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
@@ -77,20 +36,9 @@
                 Thermal Preference Vote (7-pt)
             </td>
             <td>
-                <input type="checkbox" name="thermal_preference_vote_7" id="thermal_preference_vote_7_1" value="-3">
-                <label for="thermal_preference_vote_7_1">-3</label>
-                <input type="checkbox" name="thermal_preference_vote_7" id="thermal_preference_vote_7_2" value="-2">
-                <label for="thermal_preference_vote_7_2">-2</label>
-                <input type="checkbox" name="thermal_preference_vote_7" id="thermal_preference_vote_7_3" value="-1">
-                <label for="thermal_preference_vote_7_3">-1</label>
-                <input type="checkbox" name="thermal_preference_vote_7" id="thermal_preference_vote_7_4" value="0">
-                <label for="thermal_preference_vote_7_4">0</label>
-                <input type="checkbox" name="thermal_preference_vote_7" id="thermal_preference_vote_7_5" value="1">
-                <label for="thermal_preference_vote_7_5">1</label>
-                <input type="checkbox" name="thermal_preference_vote_7" id="thermal_preference_vote_7_6" value="2">
-                <label for="thermal_preference_vote_7_6">2</label>
-                <input type="checkbox" name="thermal_preference_vote_7" id="thermal_preference_vote_7_7" value="3">
-                <label for="thermal_preference_vote_7_7">3</label>
+                {% for tpv7 in SECOND_CHOICES %}
+                <label><input type="checkbox" name="thermal_preference_vote_7" value="{{ tpv7 }}">&nbsp;{{ tpv7 }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
@@ -98,12 +46,9 @@
                 Thermal Preference (3-pt scale)
             </td>
             <td>
-                <input type="checkbox" name="thermal_preference" id="thermal_preference1" value="-1">
-                <label for="thermal_preference1">-1</label>
-                <input type="checkbox" name="thermal_preference" id="thermal_preference2" value="0">
-                <label for="thermal_preference2">0</label>
-                <input type="checkbox" name="thermal_preference" id="thermal_preference3" value="1">
-                <label for="thermal_preference3">1</label>
+                {% for tp in THIRD_CHOICES %}
+                <label><input type="checkbox" name="thermal_preference" value="{{ tp }}">&nbsp;{{ tp }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
@@ -111,20 +56,9 @@
                 Thermal Acceptance
             </td>
             <td>
-                <input type="checkbox" name="thermal_acceptance" id="thermal_acceptance1" value="-3">
-                <label for="thermal_acceptance1">-3</label>
-                <input type="checkbox" name="thermal_acceptance" id="thermal_acceptance2" value="-2">
-                <label for="thermal_acceptance2">-2</label>
-                <input type="checkbox" name="thermal_acceptance" id="thermal_acceptance3" value="-1">
-                <label for="thermal_acceptance3">-1</label>
-                <input type="checkbox" name="thermal_acceptance" id="thermal_acceptance4" value="-0">
-                <label for="thermal_acceptance4">0</label>
-                <input type="checkbox" name="thermal_acceptance" id="thermal_acceptance5" value="1">
-                <label for="thermal_acceptance5">1</label>
-                <input type="checkbox" name="thermal_acceptance" id="thermal_acceptance6" value="2">
-                <label for="thermal_acceptance6">2</label>
-                <input type="checkbox" name="thermal_acceptance" id="thermal_acceptance7" value="3">
-                <label for="thermal_acceptance7">3</label>
+                {% for ta in SECOND_CHOICES %}
+                <label><input type="checkbox" name="thermal_acceptance" value="{{ ta }}">&nbsp;{{ ta }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
@@ -132,20 +66,9 @@
                 Wind Sensation Vote
             </td>
             <td>
-                <input type="checkbox" name="wind_sensation_vote" id="wind_sensation_vote1" value="-3">
-                <label for="wind_sensation_vote1">-3</label>
-                <input type="checkbox" name="wind_sensation_vote" id="wind_sensation_vote2" value="-2">
-                <label for="wind_sensation_vote2">-2</label>
-                <input type="checkbox" name="wind_sensation_vote" id="wind_sensation_vote3" value="-1">
-                <label for="wind_sensation_vote3">-1</label>
-                <input type="checkbox" name="wind_sensation_vote" id="wind_sensation_vote4" value="-0">
-                <label for="wind_sensation_vote4">0</label>
-                <input type="checkbox" name="wind_sensation_vote" id="wind_sensation_vote5" value="1">
-                <label for="wind_sensation_vote5">1</label>
-                <input type="checkbox" name="wind_sensation_vote" id="wind_sensation_vote6" value="2">
-                <label for="wind_sensation_vote6">2</label>
-                <input type="checkbox" name="wind_sensation_vote" id="wind_sensation_vote7" value="3">
-                <label for="wind_sensation_vote7">3</label>
+                {% for wsv in SECOND_CHOICES %}
+                <label><input type="checkbox" name="wind_sensation_vote" value="{{ wsv }}">&nbsp;{{ wsv }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
@@ -153,20 +76,9 @@
                 Solar Sensation Vote
             </td>
             <td>
-                <input type="checkbox" name="solar_sensation_vote" id="solar_sensation_vote1" value="-3">
-                <label for="solar_sensation_vote1">-3</label>
-                <input type="checkbox" name="solar_sensation_vote" id="solar_sensation_vote2" value="-2">
-                <label for="solar_sensation_vote2">-2</label>
-                <input type="checkbox" name="solar_sensation_vote" id="solar_sensation_vote3" value="-1">
-                <label for="solar_sensation_vote3">-1</label>
-                <input type="checkbox" name="solar_sensation_vote" id="solar_sensation_vote4" value="-0">
-                <label for="solar_sensation_vote4">0</label>
-                <input type="checkbox" name="solar_sensation_vote" id="solar_sensation_vote5" value="1">
-                <label for="solar_sensation_vote5">1</label>
-                <input type="checkbox" name="solar_sensation_vote" id="solar_sensation_vote6" value="2">
-                <label for="solar_sensation_vote6">2</label>
-                <input type="checkbox" name="solar_sensation_vote" id="solar_sensation_vote7" value="3">
-                <label for="solar_sensation_vote7">3</label>
+                {% for ssv in SECOND_CHOICES %}
+                <label><input type="checkbox" name="solar_sensation_vote" value="{{ ssv }}">&nbsp;{{ ssv }}</label>
+                {% endfor %}
             </td>
         </tr>
         <tr>
@@ -174,20 +86,9 @@
                 Humidity Sensation Vote
             </td>
             <td>
-                <input type="checkbox" name="humidity_sensation_vote" id="humidity_sensation_vote1" value="-3">
-                <label for="humidity_sensation_vote1">-3</label>
-                <input type="checkbox" name="humidity_sensation_vote" id="humidity_sensation_vote2" value="-2">
-                <label for="humidity_sensation_vote2">-2</label>
-                <input type="checkbox" name="humidity_sensation_vote" id="humidity_sensation_vote3" value="-1">
-                <label for="humidity_sensation_vote3">-1</label>
-                <input type="checkbox" name="humidity_sensation_vote" id="humidity_sensation_vote4" value="-0">
-                <label for="humidity_sensation_vote4">0</label>
-                <input type="checkbox" name="humidity_sensation_vote" id="humidity_sensation_vote5" value="1">
-                <label for="humidity_sensation_vote5">1</label>
-                <input type="checkbox" name="humidity_sensation_vote" id="humidity_sensation_vote6" value="2">
-                <label for="humidity_sensation_vote6">2</label>
-                <input type="checkbox" name="humidity_sensation_vote" id="humidity_sensation_vote7" value="3">
-                <label for="humidity_sensation_vote7">3</label>
+                {% for hsv in SECOND_CHOICES %}
+                <label><input type="checkbox" name="humidity_sensation_vote" value="{{ hsv }}">&nbsp;{{ hsv }}</label>
+                {% endfor %}
             </td>
         </tr>
     </table>

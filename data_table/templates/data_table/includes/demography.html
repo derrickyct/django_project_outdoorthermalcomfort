@@ -1,4 +1,4 @@
-<h3 id="demographyTitle">Demography</h3>
+<h4 id="demographyTitle">Demography</h4>
 <fieldset id="demographyForm">
     <table>
         <tr>
@@ -14,11 +14,10 @@
         </tr>
         <tr>
             <td>
-                Exact Age:
+                Exact Age:&nbsp;&nbsp;
             </td>
             <td>
-                <span id="age_value">{{ age_min }},{{ age_max }}</span>&nbsp;&nbsp;
-                <input type="text" name="age" class="span2" id="age" value="" data-slider-min="{{ age_min }}" data-slider-max="{{ age_max }}" data-slider-step="1" data-slider-value="[{{ age_min }}, {{ age_max }}]"/>
+                <input type="text" name="age" id="age-slider" value="" data-slider-id="SLIDER" data-slider-min="{{ age_min }}" data-slider-max="{{ age_max }}" data-slider-step="1" data-slider-value="[{{ age_min }}, {{ age_max }}]"/>
             </td>
         </tr>
         <tr>
@@ -27,27 +26,24 @@
             </td>
             <td>
                 {% for agegrp in AGEGRP_CHOICES %}
-                    <input type="checkbox" name="age_grp" id="{{ agegrp }}" value="{{ agegrp }}">
-                    <label for="{{ agegrp }}">{{ agegrp }}</label>
+                    <label><input type="checkbox" name="age_grp" id="{{ agegrp }}" value="{{ agegrp }}">&nbsp;{{ agegrp }}</label>
                 {% endfor %}
             </td>
         </tr>
         <tr>
             <td>
-                Height:
+                Height:&nbsp;&nbsp;
             </td>
             <td>
-                <span id="height_value">{{ height_min }},{{ height_max }}</span>&nbsp;&nbsp;
-                <input type="text" name="height" class="span2" id="height" value="" data-slider-min="{{ height_min }}" data-slider-max="{{ height_max }}" data-slider-step="1" data-slider-value="[{{ height_min }}, {{ height_max }}]"/>
+                <input type="text" name="height" id="height-slider" value="" data-slider-id="SLIDER" data-slider-min="{{ height_min }}" data-slider-max="{{ height_max }}" data-slider-step="1" data-slider-value="[{{ height_min }}, {{ height_max }}]"/>
             </td>
         </tr>
         <tr>
             <td>
-                Weight:
+                Weight:&nbsp;&nbsp;
             </td>
             <td>
-                <span id="weight_value">{{ weight_min }},{{ weight_max }}</span>&nbsp;&nbsp;
-                <input type="text" name="weight" class="span2" id="weight" value="" data-slider-min="{{ weight_min }}" data-slider-max="{{ weight_max }}" data-slider-step="1" data-slider-value="[{{ weight_min }}, {{ weight_max }}]"/>
+                <input type="text" name="weight" id="weight-slider" value="" data-slider-id="SLIDER" data-slider-min="{{ weight_min }}" data-slider-max="{{ weight_max }}" data-slider-step="1" data-slider-value="[{{ weight_min }}, {{ weight_max }}]"/>
             </td>
         </tr>
     </table>

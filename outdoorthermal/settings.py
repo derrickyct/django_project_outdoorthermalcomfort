@@ -23,10 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ge!y04&)s%(7vwrbcxs&2+4ezxby*hm4l_snx2c+m7snb@mdsd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'outdoorthermalcomfortdata.herokuapp.com',
+    'https://outdoorthermaltesting.herokuapp.com',
     '127.0.0.1',
     'localhost',
     'www.outdoorthermalcomfortdata.com',
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
     'django_tables2',
     'django_plotly_dash.apps.DjangoPlotlyDashConfig',
-    'bootstrap3',
+    "bootstrap4",
 
     'data_table',
     'plotting',

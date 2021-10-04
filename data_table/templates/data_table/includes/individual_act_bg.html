@@ -1,37 +1,28 @@
-<h3 id="individualTitle">Individual Activity Background</h3>
+<h4 id="individualTitle">Individual Activity Background</h4>
 <div id="individualForm">
     <table>
         <tr>
             <td>
-                Metabolic Rate:
+                Metabolic Rate:&nbsp;&nbsp;
             </td>
             <td>
-                <td>
-                <span id="metabolic_rate_value">{{ metabolic_rate_min }},{{ metabolic_rate_max }}</span>&nbsp;&nbsp;
-                <input type="text" name="metabolic_rate" class="span2" id="metabolic_rate" value="" data-slider-min="{{ metabolic_rate_min }}" data-slider-max="{{ metabolic_rate_max }}" data-slider-step="1" data-slider-value="[{{ metabolic_rate_min }}, {{ metabolic_rate_max }}]"/>
-            </td>
+                <input type="text" name="metabolic_rate" id="metabolic_rate-slider" value="" data-slider-id="SLIDER" data-slider-min="{{ metabolic_rate_min }}" data-slider-max="{{ metabolic_rate_max }}" data-slider-step="1" data-slider-value="[{{ metabolic_rate_min }}, {{ metabolic_rate_max }}]"/>
             </td>
         </tr>
         <tr>
             <td>
-                Clothing index:
+                Clothing index:&nbsp;&nbsp;
             </td>
             <td>
-                <td>
-                <span id="clothing_index_value">{{ clothing_index_min }},{{ clothing_index_max }}</span>&nbsp;&nbsp;
-                <input type="text" name="clothing_index" class="span2" id="clothing_index" value="" data-slider-min="{{ clothing_index_min }}" data-slider-max="{{ clothing_index_max }}" data-slider-step="1" data-slider-value="[{{ clothing_index_min }}, {{ clothing_index_max }}]"/>
-            </td>
+                <input type="text" name="clothing_index" id="clothing_index-slider" value="" data-slider-id="SLIDER" data-slider-min="{{ clothing_index_min }}" data-slider-max="{{ clothing_index_max }}" data-slider-step="1" data-slider-value="[{{ clothing_index_min }}, {{ clothing_index_max }}]"/>
             </td>
         </tr>
         <tr>
             <td>
-                Thermal History:
+                Thermal History:&nbsp;&nbsp;
             </td>
             <td>
-                <td>
-                <span id="thermal_history_value">{{ thermal_history_min }},{{ thermal_history_max }}</span>&nbsp;&nbsp;
-                <input type="text" name="thermal_history" class="span2" id="thermal_history" value="" data-slider-min="{{ thermal_history_min }}" data-slider-max="{{ thermal_history_max }}" data-slider-step="1" data-slider-value="[{{ thermal_history_min }}, {{ thermal_history_max }}]"/>
-            </td>
+                <input type="text" name="thermal_history" id="thermal_history-slider" value="" data-slider-id="SLIDER" data-slider-min="{{ thermal_history_min }}" data-slider-max="{{ thermal_history_max }}" data-slider-step="1" data-slider-value="[{{ thermal_history_min }}, {{ thermal_history_max }}]"/>
             </td>
         </tr>
     </table>
