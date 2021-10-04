@@ -19,7 +19,11 @@ from bs4 import BeautifulSoup
 
 
 def shiny(request):
-    return render(request, 'plotting/shiny.html')
+    context = {
+        'title': 'Data Plot',
+        'status_plot': 'active',
+    }
+    return render(request, 'plotting/shiny.html', context)
 
 
 def shiny_contents(request):

@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}{{ title }}{% endblock %}
+
 {% block extrastyle %}
 <style>
     html, body {
@@ -23,7 +25,16 @@
 </style>
 {% endblock %}
 
+{% block main %}
+<h1>Shiny Plot</h1>
+<div class="text-right">
+    <div class="btn-group btn-group-toggle">
+        <a href="{% url 'plot' %}" class="btn btn-primary" role="button" aria-disabled="true">Plotly</a>
+        <a href="{% url 'shiny' %}" class="btn btn-primary disabled" role="button" aria-disabled="true">Shiny</a>
+    </div>
+</div>
+{% endblock %}
+
 {% block shinyGraph %}
-<iframe src="https://testing-shiny.herokuapp.com/">
-  </iframe>
+<iframe src="https://testing-shiny.herokuapp.com/"></iframe>
 {% endblock %}
