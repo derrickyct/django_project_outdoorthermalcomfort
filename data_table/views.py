@@ -194,52 +194,57 @@ def DataFilter(t, request):
 
 def SelectColumnFilter(request):
 
-    isChosen = False
+    isSelect = False
 
     global previous_setting
 
     filter_choice = []
 
     if not previous_setting:
-        if 'select' in request.POST:
+        if 'select' in request.POST:  # first select
+            print('1')
+            isSelect = True
             filter_choice = request.POST.getlist('column_choices')
             previous_setting = filter_choice
         else:
-            filter_choice = []
+            print('2')
+            filter_choice = []  # when clicking other buttons
 
     else:
-        isChosen = True
-        if 'select' in request.POST:
-            filter_choice = request.POST.getlist('column_choices')
+        if 'select' in request.POST:  # select >1 times
+            print('3')
+            isSelect = True
+            filter_choice = request.POST.getlist('column_choices') + previous_setting
             previous_setting = filter_choice
         else:
-            if request.GET:
+            print('4')
+            if request.GET:  # when filter data
                 filter_choice = previous_setting
-            else:
+            else:  # when not first select, not selecting and not filtering
+                print('5')
                 previous_setting = []
 
-    return isChosen, filter_choice
+    return isSelect, filter_choice
 
 
 def ShowData(request):
 
-    isChosen, filter_choice = SelectColumnFilter(request)
+    isSelect, filter_choice = SelectColumnFilter(request)
 
     class ShinyDataTable(tables.Table):
         class Meta:
             model = ShinyData
-            if isChosen:
-                exclude = ["no"] + filter_choice
-            else:
-                exclude = ["no"]
+            exclude = ["no"] + filter_choice
             attrs = {'class': 'paleblue'}
 
     t = ShinyData.objects.all()
 
     if 'search' in request.GET:
         print('data filter')
+        isSelect = True
         t = DataFilter(t, request)
     elif 'reset' in request.GET:
+        isSelect = False
         t = ShinyData.objects.all()
 
     table = ShinyDataTable(t)
@@ -252,6 +257,7 @@ def ShowData(request):
 
     context = {
         'status_table': 'active',
+        'jump': isSelect,
         'table': table,
         'filter_option': filter_option,
         'FIRST_CHOICES': FIRST_CHOICES,

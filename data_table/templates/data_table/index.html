@@ -15,17 +15,19 @@
 {% block main %}
 <div class="main-container">
     <form method="get" id="selectSubjective" class="filter-form">
-        <h3 class="filter-form-title" id="filterTitle" style="font-weight: bold;">Filter Data</h3>
+        <h3 title="Click to expand all.." class="filter-form-title" id="filterTitle" style="font-weight: bold;">Filter Data</h3>
         <div class="main-container">
             {% include 'data_table/includes/subjective_assessment.html' %}
             {% include 'data_table/includes/demography.html' %}
             {% include 'data_table/includes/individual_act_bg.html' %}
-            {% include 'data_table/includes/measurment.html' %}
+            {% include 'data_table/includes/measurement.html' %}
             {% include 'data_table/includes/survey_bg.html' %}
         </div>
         <button type="submit" id="selectBtn" class="btn btn-primary" name="search">Filter</button>
         <button type="submit" class="btn btn-primary" name="reset">Reset</button>
     </form>
+
+    <p title="{{ jump }}" id="tableAnchor"></p>
 
     {% include 'data_table/includes/select_column_filter.html' %}
 
@@ -34,7 +36,7 @@
     </div>
 
     {% load querystring from django_tables2 %}
-    <a class="btn btn-primary" href="{% querystring '_export'='csv' %}">Download CSV</a>
+    <a href="{% querystring '_export'='csv' %}" class="btn btn-primary">Download CSV</a>
 </div>
 {% endblock %}
 

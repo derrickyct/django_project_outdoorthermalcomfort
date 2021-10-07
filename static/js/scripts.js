@@ -1,18 +1,25 @@
-
 $(document).ready(function(){
+    // keep focus on the table
+    if ($("#tableAnchor").attr("title") == 'True') {
+//        var pos = $("#tableAnchor").attr("href");
+//        $('html,body').animate({scrollTop: $(pos).offset().top},'slow');
+        $(document).scrollTop($("#tableAnchor").offset().top);
+    };
+
+    // form expansion
     $('#filterTitle').click(function() {
         if($("#subjectiveForm").is(":visible") || $("#demographyForm").is(":visible") || $("#individualForm").is(":visible") ||
-        $("#measurmentForm").is(":visible") || $("#surveyForm").is(":visible")){
+        $("#measurementForm").is(":visible") || $("#surveyForm").is(":visible")){
             $('#subjectiveForm').hide(600);
             $('#demographyForm').hide(600);
             $('#individualForm').hide(600);
-            $('#measurmentForm').hide(600);
+            $('#measurementForm').hide(600);
             $('#surveyForm').hide(600);
         }else{
             $('#subjectiveForm').show(600);
             $('#demographyForm').show(600);
             $('#individualForm').show(600);
-            $('#measurmentForm').show(600);
+            $('#measurementForm').show(600);
             $('#surveyForm').show(600);
         }
     });
@@ -25,8 +32,8 @@ $(document).ready(function(){
     $('#individualTitle').click(function() {
         $('#individualForm').toggle(600);
     });
-    $('#measurmentTitle').click(function() {
-        $('#measurmentForm').toggle(600);
+    $('#measurementTitle').click(function() {
+        $('#measurementForm').toggle(600);
     });
     $('#surveyTitle').click(function() {
         $('#surveyForm').toggle(600);
@@ -58,7 +65,7 @@ $(document).ready(function(){
     $("#thermal_history-slider").on("slide", function(slideEvt){
         $("#thermal_history_value").text(slideEvt.value);
     });
-    // measurment
+    // measurement
     $("#air_temp-slider").slider({precision: 2,});
     $("#air_temp-slider").on("slide", function(slideEvt){
         $("#air_temp_value").text(slideEvt.value);

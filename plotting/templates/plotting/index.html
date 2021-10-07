@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}Plotly Plot{% endblock %}
 
 {% block main %}
 {% load plotly_dash %}
@@ -13,8 +13,7 @@
     </div>
 </div>
 <div class="{% plotly_class name='SimpleExample' %} card" style="height: 100%; width: 100%">
-    {% plotly_app name='SimpleExample' ratio=0.9 %}
+    {% plotly_app name='SimpleExample' ratio=1.0 %}
 </div>
 <br>
 {% endblock %}
-

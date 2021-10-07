@@ -114,7 +114,7 @@ def display_scatter(xAxis, yAxis, color, graphMethod, facetCol, facetRow):
             fig = px.scatter(df, x=xAxis, y=yAxis, facet_row=facetRow)
         elif facetCol == 'None' and facetRow == 'None' and color != 'None':
             print(facetCol, facetRow, color)
-            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, trendline="ols")
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color)
         else:
             print(facetCol, facetRow, color)
             fig = px.scatter(df, x=xAxis, y=yAxis)
@@ -122,9 +122,33 @@ def display_scatter(xAxis, yAxis, color, graphMethod, facetCol, facetRow):
     elif graphMethod == 'bin':
         print('this is bin plot', graphMethod)
 
+
     elif graphMethod == 'smooth':
         print('this is smooth plot', graphMethod)
-        fig = px.scatter(df, x=xAxis, y=yAxis, trendline="ols")
+        if facetCol != 'None' and facetRow != 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, facet_col=facetCol, facet_row=facetRow, trendline="ols")
+        elif facetCol != 'None' and facetRow != 'None' and color == 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, facet_col=facetCol, facet_row=facetRow, trendline="ols")
+        elif facetCol != 'None' and facetRow == 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, facet_col=facetCol, trendline="ols")
+        elif facetCol != 'None' and facetRow == 'None' and color == 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, facet_col=facetCol, trendline="ols")
+        elif facetCol == 'None' and facetRow != 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, facet_row=facetRow, trendline="ols")
+        elif facetCol == 'None' and facetRow != 'None' and color == 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, facet_row=facetRow, trendline="ols")
+        elif facetCol == 'None' and facetRow == 'None' and color != 'None':
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, color=color, trendline="ols")
+        else:
+            print(facetCol, facetRow, color)
+            fig = px.scatter(df, x=xAxis, y=yAxis, trendline="ols")
         return fig
     elif graphMethod == 'jitter':
         print('this is jitter plot', graphMethod)
