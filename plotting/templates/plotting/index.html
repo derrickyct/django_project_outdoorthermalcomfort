@@ -1,19 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Plotly Plot{% endblock %}
+{% block title %}Shiny Plot{% endblock %}
 
-{% block main %}
-{% load plotly_dash %}
-<h1>Plotly Plot</h1>
-<div class="text-right">
-    <div class="btn-group btn-group-toggle">
-        <a href="{% url 'plot' %}" class="btn btn-primary disabled" role="button" aria-disabled="true">Plotly</a>
-        <a href="{% url 'shiny' %}" class="btn btn-primary" role="button" aria-disabled="true">Shiny</a>
-    </div>
-</div>
-<div class="{% plotly_class name='SimpleExample' %} card" style="height: 100%; width: 100%">
-    {% plotly_app name='SimpleExample' ratio=1.0 %}
-</div>
-<br>
+{% block extrastyle %}
+<style>
+    html, body {
+      height: 100%;
+    }
+
+    .container-fluid {
+      height: 100%;
+    }
+
+    #content {
+      height: 100%;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block shinyGraph %}
+<iframe src="https://testing-shiny.herokuapp.com/"></iframe>
 {% endblock %}

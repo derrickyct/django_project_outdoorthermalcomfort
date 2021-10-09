@@ -12,6 +12,8 @@
     <meta name="keywords" content="otc, outdoorthermal, outdoor thermal, outdoor thermal comfort, outdoor thermal comfort data">
     <meta name="robots" content="index,follow">
     <title>{% block title %}Outdoor Thermal Comfort Data{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}" />
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
@@ -21,32 +23,27 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <div class="container-fluid">
-                <a class="navbar-brand" style="font-size: 35px;" href="{% url 'index' %}">Outdoor Thermal Comfort Database</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 25px; padding-top: 5px;">
-                            <li class="nav-item">
-                                <a class="nav-link {{ status_table }}" href="{% url 'index' %}">Table</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link {{ status_plot }}" href="{% url 'plot' %}">Plot</a>
-                            </li>
-                      </ul>
-                </div>
-          </div>
+        <a class="navbar-brand" style="font-size: 35px;" href="{% url 'index' %}"><img class="icon" src="{% static 'img/icon.png' %}"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse" style="font-size: 29px; padding-top: 3%">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link {{ status_table }}" href="{% url 'index' %}">Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ status_plot }}" href="{% url 'plot' %}">Plot</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <main>
         {% block main %}{% endblock %}
-
     </main>
-    <div class="container-fluid">
         <section id="content">
             {% block shinyGraph %}{% endblock %}
         </section>
-    </div>
 
     <footer>
         <br><hr>
