@@ -1,0 +1,58 @@
+html * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon {
+    height: 100px;
+    width: 400px;
+}
+
+.filter-form {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border: 2px solid lightgrey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-form-title {
+    margin-top: -2px;
+    margin-bottom: -2px;
+}
+
+.simulate-link {
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 1%;
+    font-size: 16pt;
+}
+
+.simulate-link a:link, .simulate-link a:visited, .simulate-link a:hover {
+    color: rgb(34, 33, 33);
+    text-decoration: none;
+}
+
+.main-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+.footer {
+    text-align: center;
+}
+
+#filterTitle:hover, #subjectiveTitle:hover, #demographyTitle:hover, #individualTitle:hover, #measurementTitle:hover, #surveyTitle:hover {
+    cursor: pointer;
+}
+
+#SLIDER .slider-handle {
+	background: #0275d8;
+}
+
+#subjectiveForm, #demographyForm, #individualForm, #measurementForm, #surveyForm {
+    display: none;
+}
+
+
